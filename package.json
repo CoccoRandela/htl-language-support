@@ -1,0 +1,25 @@
+{
+  "name": "htl-language-support",
+  "displayName": "htl-language-support",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "htl",
+      "aliases": ["htl", "htl"],
+      "extensions": [".html"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "htl",
+      "scopeName": "markdown.htl",
+      "path": "./syntaxes/htl.tmLanguage.json"
+    }]
+  }
+}
