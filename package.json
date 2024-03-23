@@ -13,12 +13,11 @@
     "languages": [{
       "id": "htl",
       "aliases": ["htl", "htl"],
-      "extensions": [".html"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
-      "language": "htl",
-      "scopeName": "markdown.htl",
+      "injectTo": ["text.html.derivative"],
+      "scopeName": "text.html.htl",
       "path": "./syntaxes/htl.tmLanguage.json"
     }]
   }

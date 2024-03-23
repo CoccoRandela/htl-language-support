@@ -3,30 +3,71 @@
 	"name": "htl",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#sly"
 		},
 		{
-			"include": "#strings"
+			"include": "#data-sly"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.htl",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.htl",
-			"begin": "\"",
-			"end": "\"",
+		"sly": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.htl",
-					"match": "\\\\."
+					"begin": "(?i)(<)(sly)(?=\\s|/?>)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.tag.begin.html"
+						},
+						"2": {
+							"name": "entity.name.tag.htl"
+						}
+					},
+					"end": ">",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.tag.end.html"
+						}
+					},
+					"name": "meta.tag.structure.$2.start.html",
+					"patterns": [
+						{
+							"include": "text.html.basic#attribute"
+						}
+					]
+				},
+				{
+					"begin": "(?i)(</)(sly)(?=\\s|/?>)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.tag.begin.html"
+						},
+						"2": {
+							"name": "entity.name.tag.htl"
+						}
+					},
+					"end": ">",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.tag.end.html"
+						}
+					},
+					"name": "meta.tag.structure.$2.end.html",
+					"patterns": [
+						{
+							"include": "text.html.basic#attribute"
+						}
+					]
+				}
+			]
+		},
+		"data-sly": {
+			"patterns": [
+				{
+
 				}
 			]
 		}
 	},
-	"scopeName": "markdown.htl"
+	"injectionSelector": "L:text.html.derivative",
+	"scopeName": "text.html.htl"
 }
