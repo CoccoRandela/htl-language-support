@@ -6,7 +6,7 @@
 			"include": "#sly"
 		},
 		{
-			"include": "#data-sly"
+			"include": "#expression"
 		}
 	],
 	"repository": {
@@ -60,10 +60,27 @@
 				}
 			]
 		},
-		"data-sly": {
+		"expression": {
 			"patterns": [
 				{
+					"begin": "(\\${)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.expression.begin.htl"
+						}
+					},
+					"end": "}(?!')",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.expression.end.htl"
+						}
+					},
+					"name": "entity.name.function.expression.htl",
+					"patterns": [
+						{
 
+						}
+					]
 				}
 			]
 		}
