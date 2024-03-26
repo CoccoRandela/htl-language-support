@@ -6,7 +6,7 @@
 			"include": "#sly"
 		},
 		{
-			"include": "#expression"
+			"include": "#attribute"
 		}
 	],
 	"repository": {
@@ -60,7 +60,7 @@
 				}
 			]
 		},
-		"expression": {
+		"attribute": {
 			"patterns": [
 				{
 					"begin": "(\\${)",
@@ -75,12 +75,34 @@
 							"name": "punctuation.definition.expression.end.htl"
 						}
 					},
-					"name": "entity.name.function.expression.htl",
+					"name": "meta.function.expression.htl",
 					"patterns": [
 						{
-
+							"include": "#expression"
 						}
 					]
+				}
+			]
+		},
+		"expression": {
+			"patterns": [
+				{
+					"match": "==",
+					"name": "keyword.operator.comparison.js"
+				},
+				{
+					"begin": "(?i)([a-zA-Z]*)(?=\\.)",
+					"beginCaptures": {
+						"0": {
+							"name": "entity.name.class.htl"
+						}
+					},
+					"end": ".",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.accessor.htl"
+						}
+					}
 				}
 			]
 		}
